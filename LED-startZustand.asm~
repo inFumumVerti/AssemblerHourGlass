@@ -1,0 +1,54 @@
+j:acall off
+mov 18h, #11111110b
+mov 19h, #01111100b
+mov 1Ah, #00111000b
+mov 1Bh, #00010000b
+mov 1Ch, #00101000b
+mov 1Dh, #01000100b
+mov 1Eh, #10000010b
+mov 1Fh, #10000010b
+
+
+mov p0, #10000000b
+mov p1, 18h
+acall off
+mov p0, #01000000b
+mov p1, 19h
+acall off
+mov p0, #00100000b
+mov p1, 1Ah
+acall off
+mov p0, #00010000b
+mov p1, 1Bh
+acall off
+mov p0, #00001000b
+mov p1, 1Ch
+acall off
+mov p0, #00000100b
+mov p1, 1Dh
+acall off
+mov p0, #00000010b
+mov p1,1Eh
+acall off
+mov p0, #00000001b
+mov p1, 1Fh
+acall off
+
+
+
+
+acall off
+acall delay
+acall off
+acall delay
+
+
+jmp j
+off:
+mov p0, #00h
+mov p1, #0ffh
+ret
+delay:
+mov r2, #00h
+l: djnz r2, l
+ret
