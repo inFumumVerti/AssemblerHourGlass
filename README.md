@@ -14,5 +14,5 @@ Keypad:
 LED Panel:
 - Countdown fertig: P3.7
 
-[Präsentation](https://docs.google.com/presentation/d/1EeMZrQuoHOfazsKBDNLWB881pwXZmDZsZxqtBTK5clA/edit#slide=id.g12da115cf09_0_0)
+[Präsentation](https://docs.google.com/presentation/d/1JqyjsRu-vtbRlw4hiDC9VYVDrKwdI0j8HGyWvAPmC6o/edit?usp=sharing)
 
