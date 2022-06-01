@@ -147,13 +147,7 @@ mov A, P2
 add A, A
 cjne A, #10000b, schreibezurück
 mov P2, #01b
-inc R7
-
-cjne R7, #01h, weiter01
-mov R7, #00h
 inc R5
-
-weiter01:
 
 call display
 ret
@@ -189,13 +183,12 @@ cjne R5, #04h, weiter001
 mov 2Ch, #00010000b
 
 weiter001:
-
 orl A, 2Ch
 
 jnb P2.0, weiter1
 orl A, #00010000b
-weiter1:
 
+weiter1:
 mov p1, A
 mov p0, #00001000b
 mov p0, #00h
@@ -203,25 +196,21 @@ mov p0, #00h
 
 
 
+mov A, 1Dh ; Muster 01000100
 
-
-
-mov A, 1Dh
-
-cjne R5, #03h, weiter002
-mov 2Dh, #00111000b
+cjne R5, #03h, weiter002 ; 2. Zeile soll nicht gefüllt werden
+mov 2Dh, #00111000b ; Setze Muster auf 00111000
 
 weiter002:
+orl A, 2Dh ; Verodere Zeile Muser mit 2Dh
 
-orl A, 2Dh
+jnb P2.1, weiter2 ; Wenn Sandkorn position nicht in aktueller Zeile
+orl A, #00010000b ; Wenn doch, verodere Zeile mit Sandkornposition
 
-jnb P2.1, weiter2
-orl A, #00010000b
 weiter2:
-
-mov p1, A
-mov p0, #00000100b
-mov p0, #00h
+mov p1, A ; Zeile in P1 schieben
+mov p0, #00000100b ; Zeile anzeigen
+mov p0, #00h ; Anzeigen beenden
 
 
 
@@ -234,13 +223,12 @@ cjne R5, #02h, weiter003
 mov 2Eh, #01111100b
 
 weiter003:
-
 orl A, 2Eh
 
 jnb P2.2, weiter3
 orl A, #00010000b
-weiter3:
 
+weiter3:
 mov p1, A
 mov p0, #00000010b
 mov p0, #00h
@@ -255,13 +243,12 @@ cjne R5, #01h, weiter004
 mov 2Fh, #01111100b
 
 weiter004:
-
 orl A, 2Fh
 
 jnb P2.3, weiter4
 orl A, #00010000b
-weiter4:
 
+weiter4:
 mov p1, A
 mov p0, #00000001b
 mov p0, #00h
